@@ -21,23 +21,26 @@ def is_laptop_related(input_text):
 # Streamlit App
 def main():
     st.title("Recomendación de Laptops")
-
+     # Descripción breve del proyecto
+    st.write("Descripción: Esta aplicación utiliza Gemini AI para generar recomendaciones de laptops con base en las características o el propósito específico que ingreses.")
     # Entrada del usuario
     user_input = st.text_input("Ingresa las características o el propósito específico para el cual necesitas una laptop, así podré brindarte una recomendación más precisa")
 
     if st.button("Generar Recomendación"):
         if user_input:
             print(user_input)
-            # Validar que la entrada esté relacionada con laptops
-            if is_laptop_related(user_input):
-                # Generar recomendación
-                recommendation = generate_recommendation('ayúdame a encontrar la laptop o cpu perfecta para mis necesidades, solo dame 5 opciones con los detalles y con la liga de la laptoo sugerida:'+ user_input)
+            # Mostrar indicador de carga mientras se procesa la solicitud
+            with st.spinner("Procesando la solicitud..."):
+                # Validar que la entrada esté relacionada con laptops
+                if is_laptop_related(user_input):
+                    # Generar recomendación
+                    recommendation = generate_recommendation('ayúdame a encontrar la laptop o cpu perfecta para mis necesidades, solo dame 5 opciones con los detalles y con la liga de la laptoo sugerida:'+ user_input)
 
-                # Mostrar la recomendación
-                st.subheader("Recomendación:")
-                st.write(recommendation)
-            else:
-                st.warning("Por favor, ingrese una pregunta relacionada con laptops.")
+                    # Mostrar la recomendación
+                    st.subheader("Recomendación:")
+                    st.write(recommendation)
+                else:
+                    st.warning("Por favor, ingrese una pregunta relacionada con laptops.")
         else:
             st.warning("Por favor, ingrese una pregunta antes de generar la recomendación.")
 
