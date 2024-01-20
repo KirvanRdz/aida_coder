@@ -2,7 +2,8 @@ import streamlit as st
 import google.generativeai as genai
 
 # Configurar Gemini AI
-genai.configure(api_key='AIzaSyB0V8K-AAdI1tq9TPqGovmoL9nrdznkb04')
+genai.configure(api_key=st.secrets["GEMINI_API_KEY"].value)
+print(st.secrets["GEMINI_API_KEY"].value)
 model = genai.GenerativeModel('gemini-pro')
 
 # Función para generar recomendación
