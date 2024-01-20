@@ -31,7 +31,7 @@ def main():
             # Validar que la entrada esté relacionada con laptops
             if is_laptop_related(user_input):
                 # Generar recomendación
-                recommendation = generate_recommendation('ayúdame a encontrar la laptop o cpu perfecta para mis necesidades, solo dame 5 opciones y con la liga de la laptoo sugerida:'+ user_input)
+                recommendation = generate_recommendation('ayúdame a encontrar la laptop o cpu perfecta para mis necesidades, solo dame 5 opciones con los detalles y con la liga de la laptoo sugerida:'+ user_input)
 
                 # Mostrar la recomendación
                 st.subheader("Recomendación:")
